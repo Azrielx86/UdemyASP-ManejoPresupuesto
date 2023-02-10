@@ -1,0 +1,85 @@
+﻿@model IEnumerable<TipoCuenta>
+
+@{
+    ViewData["Title"] = "Tipos Cuentas";
+}
+
+<div class="container-fluid">
+
+    <h2>Tipos de cuentas</h2>
+
+    <h5>
+        El tipo de cuenta se refiere a cómo podemos agrupar cuentas.
+        Ejemplos: Préstamos, tarjetas de crédito, etc.
+    </h5>
+
+    <a class="btn btn-primary mb-3" asp-action="Crear">Crear</a>
+    @if (Model is not null)
+    {
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="reordenable">
+                @foreach(var cuenta in Model)
+                {
+                    <tr>
+                        <td>@cuenta.Nombre</td>
+                        <td>
+                            <input type="hidden" value="@cuenta.Id" class="ids"/>
+                            <a class="btn btn-primary" asp-action="Editar" asp-route-id="@cuenta.Id">Editar</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@cuenta.Id">Borrar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h5>No hay cuentas registradas</h5>
+    }
+
+</div>
+
+@section Scripts {
+    <script>
+
+        const urlOrdenar = '@Url.Action("Order")'
+
+        $(function(){
+            $("#reordenable").sortable({
+                stop: async (e, ui) => 
+                {
+                    await updateOrders();
+                }
+            });
+        })
+
+        const sendIdsToBack = async (ids) => {
+            var data = JSON.stringify(ids);
+            await fetch(urlOrdenar, {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+        }
+
+        async function updateOrders(){
+            const ids = getElementsIds();
+            await sendIdsToBack(ids);
+        }
+
+        function getElementsIds(){
+            const ids =  $(".ids").map(function(){
+                return $(this).val();
+            }).get();
+            return ids;
+        }
+    </script>
+}
