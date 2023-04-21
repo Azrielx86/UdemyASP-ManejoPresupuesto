@@ -114,7 +114,7 @@ public class CuentasController : Controller
     public async Task<IActionResult> DeleteAccount(int id)
     {
         var userId = userService.GetUserId();
-        var cuenta =  await repositoryAccounts.GetById(id, userId);
+        var cuenta = await repositoryAccounts.GetById(id, userId);
         if (cuenta is null)
             return RedirectToAction("NotFoundProperty", "Home");
 

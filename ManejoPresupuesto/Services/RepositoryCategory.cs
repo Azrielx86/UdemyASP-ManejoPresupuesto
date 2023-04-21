@@ -28,6 +28,15 @@ public class RepositoryCategory : IRepositoryCategory
         await connection.ExecuteAsync("DELETE Categorias WHERE Id = @Id", new { id });
     }
 
+    public async Task<IEnumerable<Categoria>> Get(int usuarioId, TipoOperacion tipoOperacion)
+    {
+        using var connection = new SqlConnection(connectionString);
+        return await connection.QueryAsync<Categoria>(@"SELECT Nombre, TipoOperacionId, UsuarioId, Id
+                                                        FROM Categorias
+                                                        WHERE UsuarioId = @UsuarioId AND TipoOperacionId = @tipoOperacion;",
+                                                        new { usuarioId, tipoOperacion });
+    }
+
     public async Task<IEnumerable<Categoria>> GetAll(int usuarioId)
     {
         using var connection = new SqlConnection(connectionString);

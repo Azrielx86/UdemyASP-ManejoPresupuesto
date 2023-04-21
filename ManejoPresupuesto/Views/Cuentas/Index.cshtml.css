@@ -22,11 +22,11 @@
     font-size: 20px;
 }
 
-.acordeon-cuentas button > span {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
+    .acordeon-cuentas button > span {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
 
 .acordeon-cuentas ul li {
     display: flex;

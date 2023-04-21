@@ -17,7 +17,7 @@ public class Cuenta
 
     public decimal Balance { get; set; }
 
-    [StringLength(maximumLength:1000)]
+    [StringLength(maximumLength: 1000)]
     public string? Descripcion { get; set; }
 
     public string? TipoCuenta { get; set; }

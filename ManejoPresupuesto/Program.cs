@@ -1,4 +1,3 @@
-using ManejoPresupuesto.Models;
 using ManejoPresupuesto.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +8,7 @@ builder.Services.AddTransient<IRepositoryTiposCuentas, RepositoryTiposCuentas>()
 builder.Services.AddTransient<IRepositoryAccounts, RepositoryAccounts>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IRepositoryCategory, RepositoryCategory>();
+builder.Services.AddTransient<IRepositoryTransactions, RepositoryTransactions>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
