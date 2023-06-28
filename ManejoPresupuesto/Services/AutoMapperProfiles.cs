@@ -8,5 +8,6 @@ public class AutoMapperProfiles : Profile
     public AutoMapperProfiles()
     {
         CreateMap<Cuenta, CuentasCreacionViewModel>();
+        CreateMap<TransaccionActualizarViewModel, Transaccion>().ReverseMap();
     }
 }

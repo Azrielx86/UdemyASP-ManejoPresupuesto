@@ -24,6 +24,9 @@ public class Transaccion
     [StringLength(1000, ErrorMessage = "La nota no puede ser mayor a {1} caracteres.")]
     public string Nota { get; set; }
 
+    [Display(Name = "Tipo de operación")]
+    public TipoOperacion TipoOperacionId { get; set; } = TipoOperacion.Ingreso;
+
     [Display(Name = "Usuario")]
     public int UsuarioId { get; set; }
 }
