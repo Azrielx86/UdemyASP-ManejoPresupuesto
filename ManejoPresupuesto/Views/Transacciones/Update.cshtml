@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Editar Transacción";
+    var linkRet = Model.UrlRetorno ?? Url.Action("Index");
 }
 
 <h1>Editar Transacción</h1>
@@ -12,6 +13,7 @@
     <input type="hidden" asp-for="Id" />
     <input type="hidden" asp-for="MontoAnterior" />
     <input type="hidden" asp-for="CuentaAnteriorId" />
+    <input type="hidden" asp-for="UrlRetorno" />
     <div class="form-floating mb-3">
         <input asp-for="FechaTransaccion" class="form-control" />
         <label asp-for="FechaTransaccion" class="form-label"></label>
@@ -50,7 +52,7 @@
 
     <button class="btn btn-primary">Enviar</button>
     <button class="btn btn-outline-danger" asp-action="Delete">Eliminar</button>
-    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+    <a class="btn btn-secondary" href="@linkRet">Cancelar</a>
 </form>
 
 @section Scripts {

@@ -29,4 +29,9 @@ public class Transaccion
 
     [Display(Name = "Usuario")]
     public int UsuarioId { get; set; }
+
+#nullable enable
+    public string? Cuenta { get; set; }
+    public string? Categoria { get; set; }
+#nullable disable
 }

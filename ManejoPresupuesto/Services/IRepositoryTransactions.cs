@@ -8,8 +8,10 @@ namespace ManejoPresupuesto.Services
 
         Task Delete(int id);
 
-        Task<Transaccion> GetById(int id, int usuarioId);
+        Task<IEnumerable<Transaccion>> GetByDate(TransaccionesPorFecha modelo);
 
+        Task<Transaccion> GetById(int id, int usuarioId);
+        Task<IEnumerable<Transaccion>> GetByUser(TransaccionesPorUsuario modelo);
         Task Update(Transaccion transaccion, decimal montoAnterior, int cuentaAnterior);
     }
 }

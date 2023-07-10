@@ -67,4 +67,36 @@ public class RepositoryTransactions : IRepositoryTransactions
         await connection.ExecuteAsync("Transaccion_Eliminar", new { id },
                     commandType: System.Data.CommandType.StoredProcedure);
     }
+
+    public async Task<IEnumerable<Transaccion>> GetByDate(TransaccionesPorFecha modelo)
+    {
+        using var connection = new SqlConnection(connectionString);
+        return await connection.QueryAsync<Transaccion>(@"
+                        SELECT t.Id, t.FechaTransaccion, t.Monto, cu.Nombre AS Cuenta,
+                        cat.Nombre AS Categoria, cat.TipoOperacionId
+                        FROM Transacciones t
+                        INNER JOIN Cuentas cu
+                        ON t.CuentaId = cu.Id
+                        INNER JOIN Categorias cat
+                        ON t.CategoriaId = cat.Id
+                        WHERE t.CuentaId = @CuentaId AND t.UsuarioId = @UsuarioId
+                        AND t.FechaTransaccion BETWEEN @FechaInicio AND @FechaFin
+                        ", modelo);
+    }
+
+    public async Task<IEnumerable<Transaccion>> GetByUser(TransaccionesPorUsuario modelo)
+    {
+        using var connection = new SqlConnection(connectionString);
+        return await connection.QueryAsync<Transaccion>(@"
+                        SELECT t.Id, t.FechaTransaccion, t.Monto, cu.Nombre AS Cuenta,
+                        cat.Nombre AS Categoria, cat.TipoOperacionId
+                        FROM Transacciones t
+                        INNER JOIN Cuentas cu
+                        ON t.CuentaId = cu.Id
+                        INNER JOIN Categorias cat
+                        ON t.CategoriaId = cat.Id
+                        WHERE t.UsuarioId = @UsuarioId
+                        AND t.FechaTransaccion BETWEEN @FechaInicio AND @FechaFin
+                        ORDER BY t.FechaTransaccion DESC", modelo);
+    }
 }

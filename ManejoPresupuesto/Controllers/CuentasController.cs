@@ -10,17 +10,22 @@ public class CuentasController : Controller
 {
     private readonly IRepositoryAccounts repositoryAccounts;
     private readonly IMapper mapper;
+    private readonly IRepositoryTransactions repositoryTransactions;
+    private readonly IReportService reportService;
     private readonly IRepositoryTiposCuentas repositoryTiposCuentas;
     private readonly IUserService userService;
 
     public CuentasController(IRepositoryTiposCuentas repositoryTiposCuentas,
         IUserService userService, IRepositoryAccounts repositoryAccounts,
-        IMapper mapper)
+        IMapper mapper, IRepositoryTransactions repositoryTransactions,
+        IReportService reportService)
     {
         this.repositoryTiposCuentas = repositoryTiposCuentas;
         this.userService = userService;
         this.repositoryAccounts = repositoryAccounts;
         this.mapper = mapper;
+        this.repositoryTransactions = repositoryTransactions;
+        this.reportService = reportService;
     }
 
     public async Task<IActionResult> Create()
@@ -50,6 +55,26 @@ public class CuentasController : Controller
 
         await repositoryAccounts.Create(cuenta);
         return RedirectToAction("Index");
+    }
+
+    /// <summary>
+    /// Obtiene los detalles de las transacciones una cuenta
+    /// </summary>
+    /// <param name="id">ID De la cuenta</param>
+    /// <param name="month">Mes</param>
+    /// <param name="year">Año</param>
+    /// <returns></returns>
+    [HttpGet]
+    public async Task<IActionResult> Details(int id, int month, int year)
+    {
+        var uid = userService.GetUserId();
+        var cuenta = await repositoryAccounts.GetById(id, uid);
+        if (cuenta is null)
+            return RedirectToAction("NoEncontrado", "Home");
+        ViewBag.cuenta = cuenta.Nombre;
+        var modelo = await reportService.GetTransactionReportByUser(uid, id, month, year, ViewBag);
+
+        return View(modelo);
     }
 
     [HttpGet]
