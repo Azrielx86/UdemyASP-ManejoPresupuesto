@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Reporte Excel";
+    var hoy = DateTime.Today;
+    var pastMonth = hoy.AddMonths(-1);
+    var pastYear = hoy.AddYears(-1);
+}
+
+<h1>Exportar a Excel</h1>
+<partial name="_Submenu" model="SubMenuTransacciones.Excel" />
+<div>
+    <a asp-action="GetExcelFileMonth" asp-route-month="@hoy.Month" asp-route-year="@hoy.Year" class="btn btn-success mb-3">Mes actual</a> ~ @hoy.ToString("MMMM yyyy")
+</div>
+<div>
+    <a asp-action="GetExcelFileMonth" asp-route-month="@pastMonth.Month" asp-route-year="@pastMonth.Year" class="btn btn-success mb-3">Mes anterior</a> ~ @pastMonth.ToString("MMMM yyyy");
+</div>
+<div>
+    <a asp-action="GetExcelFileYear" asp-route-year="@hoy.Year" class="btn btn-success mb-3">Año actual</a> ~ @hoy.Year
+</div>
+<div>
+    <a asp-action="GetExcelFileYear" asp-route-year="@pastYear.Year" class="btn btn-success mb-3">Año anterior</a> ~ @pastYear.Year
+</div>
+<div>
+    <a asp-action="GetExcelFileAll" class="btn btn-success mb-3">Exportar todo</a>
+</div>

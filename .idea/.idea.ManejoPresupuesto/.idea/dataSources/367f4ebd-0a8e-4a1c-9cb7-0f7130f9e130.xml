@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="ManejoPresupuesto@Itsuki">
+  <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.49">
+    <root id="1">
+      <ServerVersion>16.0.1000</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="ManejoPresupuesto">
+      <Current>1</Current>
+      <Fingerprint>5.44956/96CEBB1F-2355-492C-95F5-4D5994A6C86F@Itsuki</Fingerprint>
+      <Grants>-9223372036854775808|database||1|connect|G
+-9223372036854775808|database||0|view any column encryption key definition|G
+-9223372036854775808|database||0|view any column master key definition|G</Grants>
+      <PermissionsCheckSum>3196235284</PermissionsCheckSum>
+    </database>
+    <database id="3" parent="1" name="master"/>
+    <database id="4" parent="1" name="model"/>
+    <database id="5" parent="1" name="msdb"/>
+    <database id="6" parent="1" name="tempdb"/>
+    <assembly id="7" parent="2" name="Microsoft.SqlServer.Types">
+      <ObjectId>1</ObjectId>
+      <Visible>1</Visible>
+    </assembly>
+    <role id="8" parent="2" name="public">
+      <AuthType>none</AuthType>
+      <ObjectId>0</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="9" parent="2" name="dbo">
+      <AuthType>windows</AuthType>
+      <DefaultSchema>dbo</DefaultSchema>
+      <ObjectId>1</ObjectId>
+      <Type>windows-user</Type>
+    </role>
+    <role id="10" parent="2" name="guest">
+      <AuthType>none</AuthType>
+      <DefaultSchema>guest</DefaultSchema>
+      <ObjectId>2</ObjectId>
+    </role>
+    <role id="11" parent="2" name="INFORMATION_SCHEMA">
+      <AuthType>none</AuthType>
+      <ObjectId>3</ObjectId>
+    </role>
+    <role id="12" parent="2" name="sys">
+      <AuthType>none</AuthType>
+      <ObjectId>4</ObjectId>
+    </role>
+    <role id="13" parent="2" name="db_owner">
+      <AuthType>none</AuthType>
+      <ObjectId>16384</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="14" parent="2" name="db_accessadmin">
+      <AuthType>none</AuthType>
+      <ObjectId>16385</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="15" parent="2" name="db_securityadmin">
+      <AuthType>none</AuthType>
+      <ObjectId>16386</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="16" parent="2" name="db_ddladmin">
+      <AuthType>none</AuthType>
+      <ObjectId>16387</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="17" parent="2" name="db_backupoperator">
+      <AuthType>none</AuthType>
+      <ObjectId>16389</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="18" parent="2" name="db_datareader">
+      <AuthType>none</AuthType>
+      <ObjectId>16390</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="19" parent="2" name="db_datawriter">
+      <AuthType>none</AuthType>
+      <ObjectId>16391</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="20" parent="2" name="db_denydatareader">
+      <AuthType>none</AuthType>
+      <ObjectId>16392</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <role id="21" parent="2" name="db_denydatawriter">
+      <AuthType>none</AuthType>
+      <ObjectId>16393</ObjectId>
+      <Type>database-role</Type>
+      <OwnerId>1</OwnerId>
+    </role>
+    <schema id="22" parent="2" name="INFORMATION_SCHEMA">
+      <ObjectId>3</ObjectId>
+    </schema>
+    <schema id="23" parent="2" name="db_accessadmin">
+      <ObjectId>16385</ObjectId>
+    </schema>
+    <schema id="24" parent="2" name="db_backupoperator">
+      <ObjectId>16389</ObjectId>
+    </schema>
+    <schema id="25" parent="2" name="db_datareader">
+      <ObjectId>16390</ObjectId>
+    </schema>
+    <schema id="26" parent="2" name="db_datawriter">
+      <ObjectId>16391</ObjectId>
+    </schema>
+    <schema id="27" parent="2" name="db_ddladmin">
+      <ObjectId>16387</ObjectId>
+    </schema>
+    <schema id="28" parent="2" name="db_denydatareader">
+      <ObjectId>16392</ObjectId>
+    </schema>
+    <schema id="29" parent="2" name="db_denydatawriter">
+      <ObjectId>16393</ObjectId>
+    </schema>
+    <schema id="30" parent="2" name="db_owner">
+      <ObjectId>16384</ObjectId>
+    </schema>
+    <schema id="31" parent="2" name="db_securityadmin">
+      <ObjectId>16386</ObjectId>
+    </schema>
+    <schema id="32" parent="2" name="dbo">
+      <Current>1</Current>
+      <DescriptionsCheckSum>13489306991</DescriptionsCheckSum>
+      <Grants>1333579789|||0|execute|G
+1333579789|||2|execute|D
+1349579846|||0|execute|G
+1349579846|||2|execute|D
+1365579903|||0|execute|G
+1365579903|||2|execute|D
+1381579960|||0|execute|G
+1381579960|||2|execute|D
+1397580017|||0|execute|G
+1397580017|||2|execute|D
+1413580074|||0|execute|G
+1413580074|||2|execute|D
+1429580131|||0|execute|G
+1429580131|||2|execute|D</Grants>
+      <IntrospectionTimestamp>2023-08-09.14:20:37.543</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-08-10.02:20:37</LocalIntrospectionTimestamp>
+      <ObjectId>1</ObjectId>
+      <PermissionsCheckSum>16112104641</PermissionsCheckSum>
+    </schema>
+    <schema id="33" parent="2" name="guest">
+      <ObjectId>2</ObjectId>
+    </schema>
+    <schema id="34" parent="2" name="sys">
+      <ObjectId>4</ObjectId>
+    </schema>
+    <routine id="35" parent="32" name="TiposCuentasInsertar">
+      <CreatedTimestamp>2023-02-06.18:03:32.070</CreatedTimestamp>
+      <ModifiedTimestamp>2023-02-06.18:03:32.070</ModifiedTimestamp>
+      <ObjectId>1525580473</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>699</SourceTextLength>
+    </routine>
+    <routine id="36" parent="32" name="Transaccion_Actualizar">
+      <CreatedTimestamp>2023-06-26.19:03:05.820</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-26.19:03:05.820</ModifiedTimestamp>
+      <ObjectId>18099105</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>1002</SourceTextLength>
+    </routine>
+    <routine id="37" parent="32" name="Transaccion_Eliminar">
+      <CreatedTimestamp>2023-06-27.15:06:03.897</CreatedTimestamp>
+      <ModifiedTimestamp>2023-06-27.15:31:38.740</ModifiedTimestamp>
+      <ObjectId>338100245</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>1004</SourceTextLength>
+    </routine>
+    <routine id="38" parent="32" name="Transacciones_Insertar">
+      <CreatedTimestamp>2023-04-20.14:36:00.440</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-20.14:36:00.440</ModifiedTimestamp>
+      <ObjectId>1845581613</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>860</SourceTextLength>
+    </routine>
+    <routine id="39" parent="32" name="fn_diagramobjects">
+      <CreatedTimestamp>2023-01-31.17:02:32.663</CreatedTimestamp>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <ModifiedTimestamp>2023-01-31.17:02:32.663</ModifiedTimestamp>
+      <ObjectId>1429580131</ObjectId>
+      <RoutineType>scalar-fun</RoutineType>
+      <SourceTextLength>1647</SourceTextLength>
+    </routine>
+    <routine id="40" parent="32" name="sp_alterdiagram">
+      <CreatedTimestamp>2023-01-31.17:02:32.660</CreatedTimestamp>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <ModifiedTimestamp>2023-01-31.17:02:32.660</ModifiedTimestamp>
+      <ObjectId>1397580017</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>1501</SourceTextLength>
+    </routine>
+    <routine id="41" parent="32" name="sp_creatediagram">
+      <CreatedTimestamp>2023-01-31.17:02:32.657</CreatedTimestamp>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <ModifiedTimestamp>2023-01-31.17:02:32.657</ModifiedTimestamp>
+      <ObjectId>1365579903</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>1223</SourceTextLength>
+    </routine>
+    <routine id="42" parent="32" name="sp_dropdiagram">
+      <CreatedTimestamp>2023-01-31.17:02:32.660</CreatedTimestamp>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <ModifiedTimestamp>2023-01-31.17:02:32.660</ModifiedTimestamp>
+      <ObjectId>1413580074</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>896</SourceTextLength>
+    </routine>
+    <routine id="43" parent="32" name="sp_helpdiagramdefinition">
+      <CreatedTimestamp>2023-01-31.17:02:32.657</CreatedTimestamp>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <ModifiedTimestamp>2023-01-31.17:02:32.657</ModifiedTimestamp>
+      <ObjectId>1349579846</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>921</SourceTextLength>
+    </routine>
+    <routine id="44" parent="32" name="sp_helpdiagrams">
+      <CreatedTimestamp>2023-01-31.17:02:32.657</CreatedTimestamp>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <ModifiedTimestamp>2023-01-31.17:02:32.657</ModifiedTimestamp>
+      <ObjectId>1333579789</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>658</SourceTextLength>
+    </routine>
+    <routine id="45" parent="32" name="sp_renamediagram">
+      <CreatedTimestamp>2023-01-31.17:02:32.660</CreatedTimestamp>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <ModifiedTimestamp>2023-01-31.17:02:32.660</ModifiedTimestamp>
+      <ObjectId>1381579960</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>1721</SourceTextLength>
+    </routine>
+    <routine id="46" parent="32" name="sp_upgraddiagrams">
+      <CreatedTimestamp>2023-01-31.17:02:32.653</CreatedTimestamp>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <ModifiedTimestamp>2023-01-31.17:02:32.653</ModifiedTimestamp>
+      <ObjectId>1269579561</ObjectId>
+      <RoutineType>proc</RoutineType>
+      <SourceTextLength>1463</SourceTextLength>
+    </routine>
+    <table id="47" parent="32" name="Categorias">
+      <CreatedTimestamp>2023-01-31.17:01:24.137</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.150</ModifiedTimestamp>
+      <ObjectId>901578250</ObjectId>
+    </table>
+    <table id="48" parent="32" name="Cuentas">
+      <CreatedTimestamp>2023-01-31.17:01:24.137</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.150</ModifiedTimestamp>
+      <ObjectId>933578364</ObjectId>
+    </table>
+    <table id="49" parent="32" name="TiposCuentas">
+      <CreatedTimestamp>2023-01-31.17:01:24.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:06:32.030</ModifiedTimestamp>
+      <ObjectId>965578478</ObjectId>
+    </table>
+    <table id="50" parent="32" name="TiposOperaciones">
+      <CreatedTimestamp>2023-01-31.17:01:24.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-20.14:30:18.063</ModifiedTimestamp>
+      <ObjectId>997578592</ObjectId>
+    </table>
+    <table id="51" parent="32" name="Transacciones">
+      <CreatedTimestamp>2023-01-31.17:01:24.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-04-20.14:30:22.510</ModifiedTimestamp>
+      <ObjectId>1029578706</ObjectId>
+    </table>
+    <table id="52" parent="32" name="Usuarios">
+      <CreatedTimestamp>2023-01-31.17:01:24.143</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.153</ModifiedTimestamp>
+      <ObjectId>1061578820</ObjectId>
+    </table>
+    <table id="53" parent="32" name="sysdiagrams">
+      <CreatedTimestamp>2023-01-31.17:02:32.653</CreatedTimestamp>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <ModifiedTimestamp>2023-01-31.17:02:32.653</ModifiedTimestamp>
+      <ObjectId>1285579618</ObjectId>
+    </table>
+    <argument id="54" parent="35" name="@Nombre">
+      <DasType>nvarchar(50 char)|0s</DasType>
+      <Position>1</Position>
+    </argument>
+    <argument id="55" parent="35" name="@UsuarioId">
+      <DasType>int|0s</DasType>
+      <Position>2</Position>
+    </argument>
+    <argument id="56" parent="36" name="@Id">
+      <DasType>int|0s</DasType>
+      <Position>1</Position>
+    </argument>
+    <argument id="57" parent="36" name="@FechaTransaccion">
+      <DasType>datetime|0s</DasType>
+      <Position>2</Position>
+    </argument>
+    <argument id="58" parent="36" name="@Monto">
+      <DasType>decimal(18,2)|0s</DasType>
+      <Position>3</Position>
+    </argument>
+    <argument id="59" parent="36" name="@MontoAnterior">
+      <DasType>decimal(18,2)|0s</DasType>
+      <Position>4</Position>
+    </argument>
+    <argument id="60" parent="36" name="@CuentaId">
+      <DasType>int|0s</DasType>
+      <Position>5</Position>
+    </argument>
+    <argument id="61" parent="36" name="@CuentaAnteriorId">
+      <DasType>int|0s</DasType>
+      <Position>6</Position>
+    </argument>
+    <argument id="62" parent="36" name="@CategoriaId">
+      <DasType>int|0s</DasType>
+      <Position>7</Position>
+    </argument>
+    <argument id="63" parent="36" name="@Nota">
+      <DasType>nvarchar(1000 char)|0s</DasType>
+      <DefaultExpression>NULL</DefaultExpression>
+      <Position>8</Position>
+    </argument>
+    <argument id="64" parent="37" name="@Id">
+      <DasType>int|0s</DasType>
+      <Position>1</Position>
+    </argument>
+    <argument id="65" parent="38" name="@UsuarioId">
+      <DasType>int|0s</DasType>
+      <Position>1</Position>
+    </argument>
+    <argument id="66" parent="38" name="@FechaTransaccion">
+      <DasType>date|0s</DasType>
+      <Position>2</Position>
+    </argument>
+    <argument id="67" parent="38" name="@Monto">
+      <DasType>decimal(18,2)|0s</DasType>
+      <Position>3</Position>
+    </argument>
+    <argument id="68" parent="38" name="@CategoriaId">
+      <DasType>int|0s</DasType>
+      <Position>4</Position>
+    </argument>
+    <argument id="69" parent="38" name="@CuentaId">
+      <DasType>int|0s</DasType>
+      <Position>5</Position>
+    </argument>
+    <argument id="70" parent="38" name="@Nota">
+      <DasType>nvarchar(1000 char)|0s</DasType>
+      <DefaultExpression>NULL</DefaultExpression>
+      <Position>6</Position>
+    </argument>
+    <argument id="71" parent="39">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DasType>int|0s</DasType>
+    </argument>
+    <argument id="72" parent="40" name="@diagramname">
+      <DasType>sysname|0s</DasType>
+      <Position>1</Position>
+    </argument>
+    <argument id="73" parent="40" name="@owner_id">
+      <DasType>int|0s</DasType>
+      <DefaultExpression>null</DefaultExpression>
+      <Position>2</Position>
+    </argument>
+    <argument id="74" parent="40" name="@version">
+      <DasType>int|0s</DasType>
+      <Position>3</Position>
+    </argument>
+    <argument id="75" parent="40" name="@definition">
+      <DasType>varbinary(max)|0s</DasType>
+      <Position>4</Position>
+    </argument>
+    <argument id="76" parent="41" name="@diagramname">
+      <DasType>sysname|0s</DasType>
+      <Position>1</Position>
+    </argument>
+    <argument id="77" parent="41" name="@owner_id">
+      <DasType>int|0s</DasType>
+      <DefaultExpression>null</DefaultExpression>
+      <Position>2</Position>
+    </argument>
+    <argument id="78" parent="41" name="@version">
+      <DasType>int|0s</DasType>
+      <Position>3</Position>
+    </argument>
+    <argument id="79" parent="41" name="@definition">
+      <DasType>varbinary(max)|0s</DasType>
+      <Position>4</Position>
+    </argument>
+    <argument id="80" parent="42" name="@diagramname">
+      <DasType>sysname|0s</DasType>
+      <Position>1</Position>
+    </argument>
+    <argument id="81" parent="42" name="@owner_id">
+      <DasType>int|0s</DasType>
+      <DefaultExpression>null</DefaultExpression>
+      <Position>2</Position>
+    </argument>
+    <argument id="82" parent="43" name="@diagramname">
+      <DasType>sysname|0s</DasType>
+      <Position>1</Position>
+    </argument>
+    <argument id="83" parent="43" name="@owner_id">
+      <DasType>int|0s</DasType>
+      <DefaultExpression>null</DefaultExpression>
+      <Position>2</Position>
+    </argument>
+    <argument id="84" parent="44" name="@diagramname">
+      <DasType>sysname|0s</DasType>
+      <DefaultExpression>NULL</DefaultExpression>
+      <Position>1</Position>
+    </argument>
+    <argument id="85" parent="44" name="@owner_id">
+      <DasType>int|0s</DasType>
+      <DefaultExpression>NULL</DefaultExpression>
+      <Position>2</Position>
+    </argument>
+    <argument id="86" parent="45" name="@diagramname">
+      <DasType>sysname|0s</DasType>
+      <Position>1</Position>
+    </argument>
+    <argument id="87" parent="45" name="@owner_id">
+      <DasType>int|0s</DasType>
+      <DefaultExpression>null</DefaultExpression>
+      <Position>2</Position>
+    </argument>
+    <argument id="88" parent="45" name="@new_diagramname">
+      <DasType>sysname|0s</DasType>
+      <Position>3</Position>
+    </argument>
+    <column id="89" parent="47" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1(18)</SequenceIdentity>
+    </column>
+    <column id="90" parent="47" name="Nombre">
+      <DasType>nvarchar(50 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <CollationName>Modern_Spanish_CI_AS</CollationName>
+    </column>
+    <column id="91" parent="47" name="TipoOperacionId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="92" parent="47" name="UsuarioId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="93" parent="47" name="FK_Categorias_TiposOperaciones">
+      <ColNames>TipoOperacionId</ColNames>
+      <CreatedTimestamp>2023-01-31.17:01:24.143</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.143</ModifiedTimestamp>
+      <ObjectId>1093578934</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>997578592</RefTableId>
+      <RefTableName>TiposOperaciones</RefTableName>
+    </foreign-key>
+    <foreign-key id="94" parent="47" name="FK_Categorias_Usuarios">
+      <ColNames>UsuarioId</ColNames>
+      <CreatedTimestamp>2023-01-31.17:01:24.147</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.147</ModifiedTimestamp>
+      <ObjectId>1109578991</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>1061578820</RefTableId>
+      <RefTableName>Usuarios</RefTableName>
+    </foreign-key>
+    <index id="95" parent="47" name="PK_Categorias">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="96" parent="47" name="PK_Categorias">
+      <CreatedTimestamp>2023-01-31.17:01:24.137</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.137</ModifiedTimestamp>
+      <ObjectId>917578307</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Categorias</UnderlyingIndexName>
+    </key>
+    <column id="97" parent="48" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1(10)</SequenceIdentity>
+    </column>
+    <column id="98" parent="48" name="Nombre">
+      <DasType>nvarchar(50 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <CollationName>Modern_Spanish_CI_AS</CollationName>
+    </column>
+    <column id="99" parent="48" name="TipoCuentaId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="100" parent="48" name="Balance">
+      <DasType>decimal(18,2)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="101" parent="48" name="Descripcion">
+      <DasType>nchar(1000 char)|0s</DasType>
+      <Position>5</Position>
+      <CollationName>Modern_Spanish_CI_AS</CollationName>
+    </column>
+    <foreign-key id="102" parent="48" name="FK_Cuentas_TiposCuentas">
+      <ColNames>TipoCuentaId</ColNames>
+      <CreatedTimestamp>2023-01-31.17:01:24.147</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.147</ModifiedTimestamp>
+      <ObjectId>1125579048</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>965578478</RefTableId>
+      <RefTableName>TiposCuentas</RefTableName>
+    </foreign-key>
+    <index id="103" parent="48" name="PK_Cuentas">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="104" parent="48" name="PK_Cuentas">
+      <CreatedTimestamp>2023-01-31.17:01:24.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.140</ModifiedTimestamp>
+      <ObjectId>949578421</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Cuentas</UnderlyingIndexName>
+    </key>
+    <column id="105" parent="49" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1(21)</SequenceIdentity>
+    </column>
+    <column id="106" parent="49" name="Nombre">
+      <DasType>nvarchar(50 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <CollationName>Modern_Spanish_CI_AS</CollationName>
+    </column>
+    <column id="107" parent="49" name="UsuarioId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="108" parent="49" name="Orden">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="109" parent="49" name="FK_TiposCuentas_Usuarios">
+      <ColNames>UsuarioId</ColNames>
+      <CreatedTimestamp>2023-01-31.17:01:24.147</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.147</ModifiedTimestamp>
+      <ObjectId>1141579105</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>1061578820</RefTableId>
+      <RefTableName>Usuarios</RefTableName>
+    </foreign-key>
+    <index id="110" parent="49" name="PK_TiposCuentas">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="111" parent="49" name="PK_TiposCuentas">
+      <CreatedTimestamp>2023-01-31.17:01:24.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.140</ModifiedTimestamp>
+      <ObjectId>981578535</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_TiposCuentas</UnderlyingIndexName>
+    </key>
+    <column id="112" parent="50" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1(3)</SequenceIdentity>
+    </column>
+    <column id="113" parent="50" name="Descripcion">
+      <DasType>nvarchar(50 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <CollationName>Modern_Spanish_CI_AS</CollationName>
+    </column>
+    <index id="114" parent="50" name="PK_TiposOperaciones">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="115" parent="50" name="PK_TiposOperaciones">
+      <CreatedTimestamp>2023-01-31.17:01:24.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.140</ModifiedTimestamp>
+      <ObjectId>1013578649</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_TiposOperaciones</UnderlyingIndexName>
+    </key>
+    <column id="116" parent="51" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1(26)</SequenceIdentity>
+    </column>
+    <column id="117" parent="51" name="FechaTransaccion">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="118" parent="51" name="Monto">
+      <DasType>decimal(18,2)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="119" parent="51" name="Nota">
+      <DasType>nvarchar(1000 char)|0s</DasType>
+      <Position>5</Position>
+      <CollationName>Modern_Spanish_CI_AS</CollationName>
+    </column>
+    <column id="120" parent="51" name="CuentaId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="121" parent="51" name="UsuarioId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="122" parent="51" name="CategoriaId">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="123" parent="51" name="FK_Transacciones_Cuentas">
+      <ColNames>CuentaId</ColNames>
+      <CreatedTimestamp>2023-01-31.17:01:24.150</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.150</ModifiedTimestamp>
+      <ObjectId>1173579219</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>933578364</RefTableId>
+      <RefTableName>Cuentas</RefTableName>
+    </foreign-key>
+    <foreign-key id="124" parent="51" name="FK_Transacciones_Usuarios">
+      <ColNames>UsuarioId</ColNames>
+      <CreatedTimestamp>2023-01-31.17:01:24.153</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.153</ModifiedTimestamp>
+      <ObjectId>1221579390</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>1061578820</RefTableId>
+      <RefTableName>Usuarios</RefTableName>
+    </foreign-key>
+    <foreign-key id="125" parent="51" name="FK_Transacciones_Categorias">
+      <ColNames>CategoriaId</ColNames>
+      <CreatedTimestamp>2023-01-31.17:01:24.150</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.150</ModifiedTimestamp>
+      <ObjectId>1157579162</ObjectId>
+      <RefColNames>Id</RefColNames>
+      <RefTableId>901578250</RefTableId>
+      <RefTableName>Categorias</RefTableName>
+    </foreign-key>
+    <index id="126" parent="51" name="PK_Transacciones">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="127" parent="51" name="PK_Transacciones">
+      <CreatedTimestamp>2023-01-31.17:01:24.140</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.140</ModifiedTimestamp>
+      <ObjectId>1045578763</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Transacciones</UnderlyingIndexName>
+    </key>
+    <column id="128" parent="52" name="Id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1(2)</SequenceIdentity>
+    </column>
+    <column id="129" parent="52" name="Email">
+      <DasType>nvarchar(256 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <CollationName>Modern_Spanish_CI_AS</CollationName>
+    </column>
+    <column id="130" parent="52" name="EmailNormalizado">
+      <DasType>nvarchar(256 char)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <CollationName>Modern_Spanish_CI_AS</CollationName>
+    </column>
+    <column id="131" parent="52" name="PasswordHash">
+      <DasType>nvarchar(max)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <CollationName>Modern_Spanish_CI_AS</CollationName>
+    </column>
+    <index id="132" parent="52" name="PK_Usuarios">
+      <Clustering>1</Clustering>
+      <ColNames>Id</ColNames>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="133" parent="52" name="PK_Usuarios">
+      <CreatedTimestamp>2023-01-31.17:01:24.143</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:01:24.143</ModifiedTimestamp>
+      <ObjectId>1077578877</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK_Usuarios</UnderlyingIndexName>
+    </key>
+    <column id="134" parent="53" name="name">
+      <DasType>sysname|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <CollationName>Modern_Spanish_CI_AS</CollationName>
+    </column>
+    <column id="135" parent="53" name="principal_id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="136" parent="53" name="diagram_id">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <SequenceIdentity>1(2)</SequenceIdentity>
+    </column>
+    <column id="137" parent="53" name="version">
+      <DasType>int|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="138" parent="53" name="definition">
+      <DasType>varbinary(max)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <index id="139" parent="53" name="PK__sysdiagr__C2B05B61BA32DB65">
+      <Clustering>1</Clustering>
+      <ColNames>diagram_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <index id="140" parent="53" name="UK_principal_name">
+      <ColNames>principal_id
+name</ColNames>
+      <Position>2</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="141" parent="53" name="PK__sysdiagr__C2B05B61BA32DB65">
+      <CreatedTimestamp>2023-01-31.17:02:32.653</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:02:32.653</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>1301579675</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK__sysdiagr__C2B05B61BA32DB65</UnderlyingIndexName>
+    </key>
+    <key id="142" parent="53" name="UK_principal_name">
+      <CreatedTimestamp>2023-01-31.17:02:32.653</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-31.17:02:32.653</ModifiedTimestamp>
+      <ObjectId>1317579732</ObjectId>
+      <UnderlyingIndexName>UK_principal_name</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
