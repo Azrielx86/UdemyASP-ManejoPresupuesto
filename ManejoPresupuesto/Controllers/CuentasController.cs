@@ -46,7 +46,7 @@ public class CuentasController : Controller
     {
         var userId = userService.GetUserId();
         var tipoCuenta = repositoryTiposCuentas.GetById(cuenta.TipoCuentaId, userId);
-        if (tipoCuenta is null) return RedirectToAction("NotFoundProperty", "Home");
+        if (tipoCuenta is null) return RedirectToAction("NoEncontrado", "Home");
         if (!ModelState.IsValid)
         {
             cuenta.TiposCuenta = await GetAccountTypes(userId);
@@ -83,7 +83,7 @@ public class CuentasController : Controller
         var userId = userService.GetUserId();
         var cuenta = await repositoryAccounts.GetById(id, userId);
         if (cuenta is null)
-            return RedirectToAction("NotFoundProperty", "Home");
+            return RedirectToAction("NoEncontrado", "Home");
 
         var model = mapper.Map<CuentasCreacionViewModel>(cuenta);
 
@@ -98,10 +98,10 @@ public class CuentasController : Controller
         var userId = userService.GetUserId();
         var cuenta = await repositoryAccounts.GetById(cuentaEditar.Id, userId);
         if (cuenta is null)
-            return RedirectToAction("NotFoundProperty", "Home");
+            return RedirectToAction("NoEncontrado", "Home");
         var tipoCuenta = await repositoryTiposCuentas.GetById(cuentaEditar.TipoCuentaId, userId);
         if (tipoCuenta is null)
-            return RedirectToAction("NotFoundProperty", "Home");
+            return RedirectToAction("NoEncontrado", "Home");
 
         await repositoryAccounts.Update(cuentaEditar);
 
@@ -130,7 +130,7 @@ public class CuentasController : Controller
         var userId = userService.GetUserId();
         var cuenta = await repositoryAccounts.GetById(id, userId);
         if (cuenta is null)
-            return RedirectToAction("NotFoundProperty", "Home");
+            return RedirectToAction("NoEncontrado", "Home");
 
         return View(cuenta);
     }
@@ -141,7 +141,7 @@ public class CuentasController : Controller
         var userId = userService.GetUserId();
         var cuenta = await repositoryAccounts.GetById(id, userId);
         if (cuenta is null)
-            return RedirectToAction("NotFoundProperty", "Home");
+            return RedirectToAction("NoEncontrado", "Home");
 
         await repositoryAccounts.Delete(id);
 

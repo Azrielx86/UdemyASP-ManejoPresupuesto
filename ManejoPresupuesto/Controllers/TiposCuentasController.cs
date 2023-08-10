@@ -42,7 +42,7 @@ namespace ManejoPresupuesto.Controllers
             var usuarioId = userService.GetUserId();
             var tipoCuenta = await repositoryTiposCuentas.GetById(id, usuarioId);
             if (tipoCuenta is null)
-                return RedirectToAction("NotFoundProperty", "Home");
+                return RedirectToAction("NoEncontrado", "Home");
             return View(tipoCuenta);
         }
 
@@ -52,7 +52,7 @@ namespace ManejoPresupuesto.Controllers
             var usuarioId = userService.GetUserId();
             var tipoCuenta = repositoryTiposCuentas.GetById(id, usuarioId);
             if (tipoCuenta is null)
-                return RedirectToAction("NotFoundProperty", "Home");
+                return RedirectToAction("NoEncontrado", "Home");
             await repositoryTiposCuentas.Delete(id);
             return RedirectToAction("Index");
         }
@@ -63,7 +63,7 @@ namespace ManejoPresupuesto.Controllers
             var usuarioId = userService.GetUserId();
             var tipoCuenta = await repositoryTiposCuentas.GetById(id, usuarioId);
             if (tipoCuenta is null)
-                return RedirectToAction("NotFoundProperty", "Home");
+                return RedirectToAction("NoEncontrado", "Home");
             return View(tipoCuenta);
         }
 
@@ -74,7 +74,7 @@ namespace ManejoPresupuesto.Controllers
             var tipoCuentaExists = await repositoryTiposCuentas.GetById(tipoCuenta.Id, usuarioId);
             if (tipoCuentaExists is null)
             {
-                return RedirectToAction("NotFoundProperty", "Home");
+                return RedirectToAction("NoEncontrado", "Home");
             }
 
             await repositoryTiposCuentas.Update(tipoCuenta);

@@ -1,4 +1,6 @@
-﻿namespace ManejoPresupuesto.Models;
+﻿using ManejoPresupuesto.Models.Transacciones;
+
+namespace ManejoPresupuesto.Models;
 
 #nullable disable
 

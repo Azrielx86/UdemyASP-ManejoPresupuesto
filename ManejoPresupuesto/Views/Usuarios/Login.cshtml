@@ -1,0 +1,35 @@
+﻿@model ManejoPresupuesto.Models.Users.LoginViewModel 
+
+@{
+    ViewBag.Title = "Iniciar Sesión";
+}
+
+<h1>Iniciar Sesión</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating mb-3">
+                <input type="email" id="email" class="form-control" asp-for="Email"/>
+                <label for="email">Email Address</label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" id="password" class="form-control" asp-for="Password"/>
+                <label for="password">Password</label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" asp-for="RememberMe"/>
+                <label asp-for="RememberMe"></label>
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button>
+            <a class="btn btn-success" asp-action="Registro">Crear una nueva cuenta</a>
+        </form>
+    </div>
+</div>
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}

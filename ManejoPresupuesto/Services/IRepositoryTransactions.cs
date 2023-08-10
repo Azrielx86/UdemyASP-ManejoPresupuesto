@@ -1,4 +1,4 @@
-﻿using ManejoPresupuesto.Models;
+﻿using ManejoPresupuesto.Models.Transacciones;
 
 namespace ManejoPresupuesto.Services
 {
@@ -11,7 +11,13 @@ namespace ManejoPresupuesto.Services
         Task<IEnumerable<Transaccion>> GetByDate(TransaccionesPorFecha modelo);
 
         Task<Transaccion> GetById(int id, int usuarioId);
+
         Task<IEnumerable<Transaccion>> GetByUser(TransaccionesPorUsuario modelo);
+        Task<IEnumerable<Transaccion>> GetByUser(int UsuarioId);
+        Task<IEnumerable<TransaccionesMensual>> GetMonthly(int usuarioId, int year);
+
+        Task<IEnumerable<TransaccionesSemanal>> GetWeekly(TransaccionesPorUsuario modelo);
+
         Task Update(Transaccion transaccion, decimal montoAnterior, int cuentaAnterior);
     }
 }

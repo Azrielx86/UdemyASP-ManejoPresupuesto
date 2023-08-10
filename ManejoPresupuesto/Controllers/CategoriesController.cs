@@ -1,5 +1,6 @@
 ﻿using ManejoPresupuesto.Models;
 using ManejoPresupuesto.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManejoPresupuesto.Controllers
@@ -39,7 +40,7 @@ namespace ManejoPresupuesto.Controllers
             var uid = userService.GetUserId();
             var category = await repositoryCategory.GetById(id, uid);
             if (category is null)
-                return RedirectToAction("NotFoundProperty", "Home");
+                return RedirectToAction("NoEncontrado", "Home");
             return View(category);
         }
 
@@ -49,7 +50,7 @@ namespace ManejoPresupuesto.Controllers
             var uid = userService.GetUserId();
             var category = await repositoryCategory.GetById(categoriaEditar.Id, uid);
             if (category is null)
-                return RedirectToAction("NotFoundProperty", "Home");
+                return RedirectToAction("NoEncontrado", "Home");
 
             categoriaEditar.UsuarioId = uid;
             await repositoryCategory.Update(categoriaEditar);
@@ -63,7 +64,7 @@ namespace ManejoPresupuesto.Controllers
             var uid = userService.GetUserId();
             var category = await repositoryCategory.GetById(id, uid);
             if (category is null)
-                return RedirectToAction("NotFoundProperty", "Home");
+                return RedirectToAction("NoEncontrado", "Home");
 
             return View(category);
         }
@@ -74,7 +75,7 @@ namespace ManejoPresupuesto.Controllers
             var uid = userService.GetUserId();
             var category = await repositoryCategory.GetById(id, uid);
             if (category is null)
-                return RedirectToAction("NotFoundProperty", "Home");
+                return RedirectToAction("NoEncontrado", "Home");
 
             await repositoryCategory.Delete(id);
 

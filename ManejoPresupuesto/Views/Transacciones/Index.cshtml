@@ -1,11 +1,19 @@
 ﻿@model ReporteTransacciones
 
 @{
-    ViewData["Title"] = "Transacciones";
+    ViewData["Title"] = "Reporte Diario";
+
+    var resumen = new ResumenMontosViewModel()
+    {
+        Ingresos = Model.BalanceDepositos,
+        Gastos = Model.BalanceRetiros,
+        Total = Model.Total
+    };
 }
 
 <h1>Indice de transacciones</h1>
 
+<partial name="_Submenu" model="SubMenuTransacciones.Diario"/>
+<partial name="_ResumenMontos" model="resumen"/>
+<partial name="_NavegarFechas" model="Model.FechaInicio"/>
 <partial name="_ReporteTransaccionesDetallado" model="Model" />
-
-<a asp-action="Create" class="btn btn-outline-primary">Crear</a>

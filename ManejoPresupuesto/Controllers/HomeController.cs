@@ -23,7 +23,7 @@ namespace ManejoPresupuesto.Controllers
             return View();
         }
 
-        public IActionResult NotFoundProperty() => View();
+        public IActionResult NoEncontrado() => View();
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

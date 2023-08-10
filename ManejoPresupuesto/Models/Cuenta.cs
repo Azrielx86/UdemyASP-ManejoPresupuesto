@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ManejoPresupuesto.Models;
 
+#nullable disable
+
 public class Cuenta
 {
     public int Id { get; set; }
@@ -18,7 +20,7 @@ public class Cuenta
     public decimal Balance { get; set; }
 
     [StringLength(maximumLength: 1000)]
-    public string? Descripcion { get; set; }
+    public string Descripcion { get; set; }
 
-    public string? TipoCuenta { get; set; }
+    public string TipoCuenta { get; set; }
 }

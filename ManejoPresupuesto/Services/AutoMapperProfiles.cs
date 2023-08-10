@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ManejoPresupuesto.Models;
+using ManejoPresupuesto.Models.Transacciones;
 
 namespace ManejoPresupuesto.Services;
 

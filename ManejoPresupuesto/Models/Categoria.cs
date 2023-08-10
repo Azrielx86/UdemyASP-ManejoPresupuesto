@@ -2,6 +2,8 @@
 
 namespace ManejoPresupuesto.Models;
 
+#nullable disable
+
 public class Categoria
 {
     public int Id { get; set; }

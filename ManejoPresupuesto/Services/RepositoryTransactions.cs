@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using ManejoPresupuesto.Models;
+using ManejoPresupuesto.Models.Transacciones;
 using Microsoft.Data.SqlClient;
 
 namespace ManejoPresupuesto.Services;
@@ -84,6 +84,31 @@ public class RepositoryTransactions : IRepositoryTransactions
                         ", modelo);
     }
 
+    public async Task<IEnumerable<TransaccionesSemanal>> GetWeekly(TransaccionesPorUsuario modelo)
+    {
+        using var connection = new SqlConnection(connectionString);
+        return await connection.QueryAsync<TransaccionesSemanal>(@"SELECT DATEDIFF(d, @fechaInicio, FechaTransaccion) / 7 + 1 as Semana,
+                                                                SUM(Monto) as Monto, cat.TipoOperacionId
+                                                                FROM Transacciones t
+                                                                INNER JOIN Categorias cat
+                                                                ON cat.Id = t.CategoriaId
+                                                                WHERE t.UsuarioId = @usuarioId AND
+                                                                FechaTransaccion BETWEEN @fechaInicio AND @fechaFin
+                                                                GROUP BY DATEDIFF(d, @fechaInicio, FechaTransaccion) / 7, cat.TipoOperacionId", modelo);
+    }
+
+    public async Task<IEnumerable<TransaccionesMensual>> GetMonthly(int usuarioId, int year)
+    {
+        using var connection = new SqlConnection(connectionString);
+        return await connection.QueryAsync<TransaccionesMensual>(@"SELECT MONTH(t.FechaTransaccion) AS Month,
+                                                                SUM(t.Monto) AS Monto, cat.TipoOperacionId
+                                                                FROM Transacciones t
+                                                                INNER JOIN Categorias cat
+                                                                ON cat.Id = t.CategoriaId
+                                                                WHERE t.UsuarioId = @usuarioId AND YEAR(t.FechaTransaccion) = @year
+                                                                GROUP BY t.FechaTransaccion, cat.TipoOperacionId;", new { usuarioId, year });
+    }
+
     public async Task<IEnumerable<Transaccion>> GetByUser(TransaccionesPorUsuario modelo)
     {
         using var connection = new SqlConnection(connectionString);
@@ -98,5 +123,20 @@ public class RepositoryTransactions : IRepositoryTransactions
                         WHERE t.UsuarioId = @UsuarioId
                         AND t.FechaTransaccion BETWEEN @FechaInicio AND @FechaFin
                         ORDER BY t.FechaTransaccion DESC", modelo);
+    }
+
+    public async Task<IEnumerable<Transaccion>> GetByUser(int UsuarioId)
+    {
+        using var connection = new SqlConnection(connectionString);
+        return await connection.QueryAsync<Transaccion>(@"
+                        SELECT t.Id, t.FechaTransaccion, t.Monto, cu.Nombre AS Cuenta,
+                        cat.Nombre AS Categoria, cat.TipoOperacionId
+                        FROM Transacciones t
+                        INNER JOIN Cuentas cu
+                        ON t.CuentaId = cu.Id
+                        INNER JOIN Categorias cat
+                        ON t.CategoriaId = cat.Id
+                        WHERE t.UsuarioId = @UsuarioId
+                        ORDER BY t.FechaTransaccion DESC", new { UsuarioId });
     }
 }

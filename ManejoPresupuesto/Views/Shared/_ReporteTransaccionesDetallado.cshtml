@@ -1,43 +1,5 @@
 ﻿@model ReporteTransacciones
 
-
-<h4>
-    <a asp-route-month="@ViewBag.pastMonth" asp-route-year="@ViewBag.pastYear" class="btn btn-secondary">
-        <i class="bi-chevron-left"></i>
-    </a>
-    @Model.FechaInicio.ToString("MMM") - @Model.FechaInicio.Year;
-    <a asp-route-month="@ViewBag.nextMonth" asp-route-year="@ViewBag.nextYear" class="btn btn-secondary">
-        <i class="bi-chevron-right"></i>
-    </a>
-</h4>
-
-<div class="contenedor-totales mb-3">
-    <div>
-        <div>
-            <strong>Depósitos</strong>
-        </div>
-        <div class="activo balance">
-            @Model.BalanceDepositos.ToString("N")
-        </div>
-    </div>
-    <div>
-        <div>
-            <strong>Retiros</strong>
-        </div>
-        <div class="pasivo balance">
-            @Model.BalanceRetiros.ToString("N")
-        </div>
-    </div>
-    <div>
-        <div>
-            <strong>Total</strong>
-        </div>
-        <div class="balance">
-            @Model.Total.ToString("N")
-        </div>
-    </div>
-</div>
-
 @if (Model.Transacciones.Count() == 0)
 {
     <h5>No hay datos para mostrar</h5>
