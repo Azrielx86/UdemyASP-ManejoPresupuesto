@@ -8,9 +8,9 @@ public interface IRepositoryAccounts
 
     Task Delete(int id);
 
-    Task<Cuenta> GetById(int id, int usuarioId);
+    Task<Cuenta?> GetById(int id, int usuarioId);
 
-    Task<IEnumerable<Cuenta>> Search(int usuarioId);
+    Task<IEnumerable<Cuenta>?> Search(int usuarioId);
 
     Task Update(CuentasCreacionViewModel cuentaEditar);
 }

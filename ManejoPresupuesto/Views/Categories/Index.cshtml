@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Categoria>
+﻿@model PageResponse<Categoria>
 
 @{
     ViewData["Title"] = "Categorías";
@@ -15,26 +15,55 @@
     <a class="btn btn-primary" asp-action="Create">Create</a>
 </div>
 
+<div class="row">
+    <label>Cantidad de registros a mostrar</label>
+    <div class="mb-3 col-auto">
+        <select asp-for="@Model.RecordsPerPage" id="cantidadRecords" class="form-select">
+            <option>3</option>
+            <option>5</option>
+            <option>10</option>
+        </select>
+    </div>
+</div>
+
+<partial name="_Pagination"/>
 
 <table class="table table-bordered table-striped">
     <thead class="table-dark">
-        <tr>
-            <th>Nombre</th>
-            <th>Tipo</th>
-            <th>Acciones</th>
-        </tr>
+    <tr>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Acciones</th>
+    </tr>
     </thead>
     <tbody>
-        @foreach (var categoria in Model)
+    @if (Model.Items != null)
+    {
+        foreach (var categoria in Model.Items)
         {
             <tr>
                 <td>@categoria.Nombre</td>
                 <td>@categoria.TipoOperacionId</td>
                 <td>
-                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@categoria.Id"><i class="bi-pencil-fill"></i></a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@categoria.Id"><i class="bi-trash-fill"></i></a>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@categoria.Id">
+                        <i class="bi-pencil-fill"></i>
+                    </a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@categoria.Id">
+                        <i class="bi-trash-fill"></i>
+                    </a>
                 </td>
             </tr>
         }
+    }
     </tbody>
 </table>
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+    <script>
+        $("#cantidadRecords").change(function () {
+            const recordsPerPage = $(this).val();
+            location.href = `/Categories?Page=1&RecordsPerPage=${recordsPerPage}`;
+        });
+    </script>
+}

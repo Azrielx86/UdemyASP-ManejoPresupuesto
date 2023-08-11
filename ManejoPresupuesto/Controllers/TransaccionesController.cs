@@ -6,7 +6,6 @@ using ManejoPresupuesto.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Data;
-using Microsoft.AspNetCore.Authorization;
 
 namespace ManejoPresupuesto.Controllers;
 
@@ -40,14 +39,14 @@ public class TransaccionesController : Controller
     public async Task<JsonResult> CalendarJson(DateTime start, DateTime end)
     {
         var uid = userService.GetUserId();
-        var transacciones = await repositoryTransactions.GetByUser(new TransaccionesPorUsuario()
+        var transacciones = await repositoryTransactions.GetByUser(new TransaccionesPorUsuario
         {
             UsuarioId = uid,
             FechaInicio = start,
             FechaFin = end
-        });
+        }) ?? new List<Transaccion>();
 
-        var modelo = transacciones.Select(t => new EventCalendar()
+        var modelo = transacciones.Select(t => new EventCalendar
         {
             Title = $"${t.Monto}",
             Start = t.FechaTransaccion.ToString("yyyy-MM-dd"),
@@ -62,7 +61,7 @@ public class TransaccionesController : Controller
     public async Task<JsonResult> EventsByDayJson(DateTime fecha)
     {
         var uid = userService.GetUserId();
-        var transacciones = await repositoryTransactions.GetByUser(new TransaccionesPorUsuario()
+        var transacciones = await repositoryTransactions.GetByUser(new TransaccionesPorUsuario
         {
             UsuarioId = uid,
             FechaInicio = fecha,
@@ -104,7 +103,12 @@ public class TransaccionesController : Controller
 
         var categorias = await repositoryCategory.GetById(model.CategoriaId, userId);
         if (categorias is null)
-            return RedirectToAction("NoEncontrado", "Home");
+        {
+            ModelState.AddModelError(nameof(model.Categorias), "Ingrese una categoría");
+            return View(model);
+        }
+
+            // return RedirectToAction("NoEncontrado", "Home");
 
         if (model.TipoOperacionId == TipoOperacion.Gasto)
             model.Monto *= -1;
@@ -118,7 +122,7 @@ public class TransaccionesController : Controller
     public async Task<IActionResult> Delete(int id, string urlRetorno = null!)
     {
         var uid = userService.GetUserId();
-        var transaccion = repositoryTransactions.GetById(id, uid);
+        var transaccion = await repositoryTransactions.GetById(id, uid);
         if (transaccion is null)
             return RedirectToAction("NoEncontrado", "Home");
         await repositoryTransactions.Delete(id);
@@ -136,7 +140,7 @@ public class TransaccionesController : Controller
     }
 
     public async Task<IEnumerable<SelectListItem>> GetAccounts(int userId)
-            => (await repositoryAccounts.Search(userId)).Select(x => new SelectListItem(x.Nombre, x.Id.ToString()));
+        => (await repositoryAccounts.Search(userId)).Select(x => new SelectListItem(x.Nombre, x.Id.ToString()));
 
     [HttpPost]
     public async Task<IActionResult> GetCategories([FromBody] TipoOperacion tipoOperacion)
@@ -161,7 +165,7 @@ public class TransaccionesController : Controller
         });
 
         var filename = $"Transacciones {fechaInicio:MMM yyyy} - {fechaFin:MMM yyyy}.xlsx";
-        return GenerateExcel(filename, transacciones);
+        return GenerateExcel(filename, transacciones!);
     }
 
     [HttpGet]
@@ -189,7 +193,7 @@ public class TransaccionesController : Controller
         var filename = $"Transacciones.xlsx";
         return GenerateExcel(filename, transacciones);
     }
-    
+
     public async Task<IActionResult> Index(int month, int year)
     {
         var uid = userService.GetUserId();
@@ -204,14 +208,14 @@ public class TransaccionesController : Controller
         if (year == 0)
             year = DateTime.Now.Year;
 
-        var transacciones = await repositoryTransactions.GetMonthly(uid, year);
+        var transacciones = await repositoryTransactions.GetMonthly(uid, year) ?? new List<TransaccionesMensual>();
 
         var agrupado = transacciones.GroupBy(x => x.Month)
             .Select(x => new TransaccionesMensual()
             {
                 Month = x.Key,
-                Ingresos = x.Where(x => x.TipoOperacionId == TipoOperacion.Ingreso).Select(x => x.Monto).Sum(),
-                Gastos = x.Where(x => x.TipoOperacionId == TipoOperacion.Gasto).Select(x => x.Monto).Sum(),
+                Ingresos = x.Where(tm => tm.TipoOperacionId == TipoOperacion.Ingreso).Select(tm => tm.Monto).Sum(),
+                Gastos = x.Where(tm => tm.TipoOperacionId == TipoOperacion.Gasto).Select(tm => tm.Monto).Sum(),
             })
             .ToList();
 
@@ -247,12 +251,13 @@ public class TransaccionesController : Controller
     public async Task<IActionResult> Semanal(int month, int year)
     {
         var uid = userService.GetUserId();
-        IEnumerable<TransaccionesSemanal> transaccionesPorSemana = await reportService.GetWeeklyReport(uid, month, year, ViewBag);
+        IEnumerable<TransaccionesSemanal> transaccionesPorSemana =
+            await reportService.GetWeeklyReport(uid, month, year, ViewBag);
         var agrupado = transaccionesPorSemana.GroupBy(x => x.Semana).Select(x => new TransaccionesSemanal()
         {
             Semana = x.Key,
-            Ingresos = x.Where(x => x.TipoOperacionId == TipoOperacion.Ingreso).Select(x => x.Monto).FirstOrDefault(),
-            Egresos = x.Where(x => x.TipoOperacionId == TipoOperacion.Gasto).Select(x => x.Monto).FirstOrDefault(),
+            Ingresos = x.Where(transaccionesSemanal => transaccionesSemanal.TipoOperacionId == TipoOperacion.Ingreso).Select(transaccionesSemanal => transaccionesSemanal.Monto).FirstOrDefault(),
+            Egresos = x.Where(transaccionesSemanal => transaccionesSemanal.TipoOperacionId == TipoOperacion.Gasto).Select(transaccionesSemanal => transaccionesSemanal.Monto).FirstOrDefault(),
         }).ToList();
 
         if (year == 0 || month == 0)
@@ -350,7 +355,8 @@ public class TransaccionesController : Controller
     private FileResult GenerateExcel(string name, IEnumerable<Transaccion> transactions)
     {
         var data = new DataTable("Transacciones");
-        data.Columns.AddRange(new[]{
+        data.Columns.AddRange(new[]
+        {
             new DataColumn("Fecha transacción"),
             new DataColumn("Cuenta"),
             new DataColumn("Categoría"),
@@ -377,5 +383,11 @@ public class TransaccionesController : Controller
     }
 
     private async Task<IEnumerable<SelectListItem>> GetCategories(int userId, TipoOperacion tipoOperacion)
-        => (await repositoryCategory.Get(userId, tipoOperacion)).Select(x => new SelectListItem(x.Nombre, x.Id.ToString()));
+    {
+        var categorias = (await repositoryCategory.Get(userId, tipoOperacion))
+            .Select(x => new SelectListItem(x.Nombre, x.Id.ToString()))
+            .ToList();
+        categorias.Insert(0, new SelectListItem("-- Selecciona una categoría --", "0", true));
+        return categorias;
+    }
 }

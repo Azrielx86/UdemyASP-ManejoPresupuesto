@@ -31,14 +31,15 @@ public class RepositoryTiposCuentas : IRepositoryTiposCuentas
         await connection.ExecuteAsync("DELETE TiposCuentas WHERE Id = @Id", new { id });
     }
 
-    public async Task<bool> Exists(string nombre, int usuarioid)
+    public async Task<bool> Exists(string nombre, int usuarioid, int id = 0)
     {
         using var connection = new SqlConnection(connectionString);
         var exists = await connection.QueryFirstOrDefaultAsync<int>(
                                                             @"SELECT 1
                                                             FROM TiposCuentas
-                                                            WHERE Nombre = @Nombre AND UsuarioId = @UsuarioId;",
-                                                            new { nombre, usuarioid }
+                                                            WHERE Nombre = @Nombre AND UsuarioId = @UsuarioId
+                                                            AND Id <> @id;",
+                                                            new { nombre, usuarioid, id }
                                                             );
         return exists == 1;
     }

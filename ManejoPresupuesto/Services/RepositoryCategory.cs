@@ -15,54 +15,69 @@ public class RepositoryCategory : IRepositoryCategory
 
     public async Task Create(Categoria categoria)
     {
-        using var connection = new SqlConnection(connectionString);
-        var id = await connection.QuerySingleAsync<int>(@"INSERT INTO Categorias (Nombre, TipoOperacionId, UsuarioId)
+        await using var connection = new SqlConnection(connectionString);
+        var id = await connection.QuerySingleAsync<int>("""
+                                                        INSERT INTO Categorias (Nombre, TipoOperacionId, UsuarioId)
                                                         VALUES(@Nombre, @TipoOperacionId, @UsuarioId)
-                                                        SELECT SCOPE_IDENTITY()", categoria);
+                                                        SELECT SCOPE_IDENTITY()
+                                                        """, categoria);
         categoria.Id = id;
     }
 
     public async Task Delete(int id)
     {
-        using var connection = new SqlConnection(connectionString);
+        await using var connection = new SqlConnection(connectionString);
         await connection.ExecuteAsync("DELETE Categorias WHERE Id = @Id", new { id });
     }
 
-    public async Task<IEnumerable<Categoria>> Get(int usuarioId, TipoOperacion tipoOperacion)
+    public async Task<IEnumerable<Categoria>?> Get(int usuarioId, TipoOperacion tipoOperacion)
     {
-        using var connection = new SqlConnection(connectionString);
+        await using var connection = new SqlConnection(connectionString);
         return await connection.QueryAsync<Categoria>(@"SELECT Nombre, TipoOperacionId, UsuarioId, Id
                                                         FROM Categorias
                                                         WHERE UsuarioId = @UsuarioId AND TipoOperacionId = @tipoOperacion;",
-                                                        new { usuarioId, tipoOperacion });
+            new { usuarioId, tipoOperacion });
     }
 
-    public async Task<IEnumerable<Categoria>> GetAll(int usuarioId)
+    public async Task<IEnumerable<Categoria>?> GetAll(int usuarioId, PaginacionViewModel paginacion)
     {
-        using var connection = new SqlConnection(connectionString);
-        return await connection.QueryAsync<Categoria>(@"SELECT Nombre, TipoOperacionId, UsuarioId, Id
-                                                        FROM Categorias
-                                                        WHERE UsuarioId = @UsuarioId;", new { usuarioId });
+        await using var connection = new SqlConnection(connectionString);
+        return await connection.QueryAsync<Categoria>($"""
+                                                       SELECT Nombre, TipoOperacionId, UsuarioId, Id
+                                                       FROM Categorias
+                                                       WHERE UsuarioId = @UsuarioId
+                                                       ORDER BY Nombre
+                                                       OFFSET {paginacion.RecordsIgnore}
+                                                       ROWS FETCH NEXT {paginacion.RecordsPerPage}
+                                                       ROWS ONLY;
+                                                       """, new { usuarioId });
     }
 
-    public async Task<Categoria> GetById(int id, int usuarioId)
+    public async Task<Categoria?> GetById(int id, int usuarioId)
     {
-        using var connection = new SqlConnection(connectionString);
+        await using var connection = new SqlConnection(connectionString);
         return await connection.QueryFirstOrDefaultAsync<Categoria>(@"SELECT *
                                                                     FROM Categorias
                                                                     WHERE Id = @Id AND UsuarioId = @UsuarioId;",
-                                                                    new
-                                                                    {
-                                                                        id,
-                                                                        usuarioId
-                                                                    });
+            new
+            {
+                id,
+                usuarioId
+            });
     }
 
     public async Task Update(Categoria categoria)
     {
-        using var connection = new SqlConnection(connectionString);
+        await using var connection = new SqlConnection(connectionString);
         await connection.ExecuteAsync(@"UPDATE Categorias
                                         SET Nombre = @Nombre, TipoOperacionId = @TipoOperacionId
                                         WHERE Id = @Id", categoria);
+    }
+
+    public async Task<int> Count(int usuarioId)
+    {
+        await using var connection = new SqlConnection(connectionString);
+        return await connection.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM Categorias WHERE UsuarioId = @usuarioId",
+            new { usuarioId });
     }
 }

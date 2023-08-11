@@ -1,22 +1,18 @@
 ﻿using ManejoPresupuesto.Models;
 using ManejoPresupuesto.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManejoPresupuesto.Controllers
 {
     public class CategoriesController : Controller
     {
-        private readonly IRepositoryAccounts repositoryAccounts;
         private readonly IRepositoryCategory repositoryCategory;
         private readonly IUserService userService;
 
         public CategoriesController(IUserService userService,
-                                    IRepositoryAccounts repositoryAccounts,
-                                    IRepositoryCategory repositoryCategory)
+            IRepositoryCategory repositoryCategory)
         {
             this.userService = userService;
-            this.repositoryAccounts = repositoryAccounts;
             this.repositoryCategory = repositoryCategory;
         }
 
@@ -83,11 +79,21 @@ namespace ManejoPresupuesto.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(PaginacionViewModel paginacion)
         {
             var uid = userService.GetUserId();
-            var categories = await repositoryCategory.GetAll(uid);
-            return View(categories);
+            var categories = await repositoryCategory.GetAll(uid, paginacion);
+            var totalCategories = await repositoryCategory.Count(uid);
+
+            var responseVm = new PageResponse<Categoria>()
+            {
+                Items = categories,
+                RecordsPerPage = paginacion.RecordsPerPage,
+                Page = paginacion.Page,
+                TotalRecordCount = totalCategories,
+                BaseUrl = Url.Action()
+            };
+            return View(responseVm);
         }
     }
 }

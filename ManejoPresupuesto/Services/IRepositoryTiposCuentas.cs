@@ -8,7 +8,7 @@ public interface IRepositoryTiposCuentas
 
     Task Delete(int id);
 
-    Task<bool> Exists(string nombre, int usuarioid);
+    Task<bool> Exists(string nombre, int usuarioid, int id = 0);
 
     Task<IEnumerable<TipoCuenta>> GetAll(int usuarioId);
 

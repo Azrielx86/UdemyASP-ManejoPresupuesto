@@ -9,44 +9,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ae098ca-7ece-4b1e-9850-fc1d383acea4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Models/Users/LoginViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Models/Users/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/Messages/MensajesDeErrorIdentity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/Users/IRepositoryUsers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/Users/RepositoryUsers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/Users/UserStore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Shared/_LinksLogin.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Usuarios/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Usuarios/Login.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Usuarios/_Layout.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Models/PageResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Models/PaginacionViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Shared/_Pagination.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ManejoPresupuesto/.idea/dataSources/367f4ebd-0a8e-4a1c-9cb7-0f7130f9e130.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ManejoPresupuesto/.idea/dataSources/367f4ebd-0a8e-4a1c-9cb7-0f7130f9e130.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ManejoPresupuesto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ManejoPresupuesto/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Controllers/CategoriesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Controllers/CategoriesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Controllers/CuentasController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Controllers/CuentasController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Controllers/TiposCuentasController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Controllers/TiposCuentasController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Controllers/TransaccionesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Controllers/TransaccionesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/ManejoPresupuesto.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/ManejoPresupuesto.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Models/AccountIndexViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Models/AccountIndexViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Models/Categoria.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Models/Categoria.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Models/Cuenta.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Models/Cuenta.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Models/ReporteTransacciones.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Models/ReporteTransacciones.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Models/Transaccion.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Models/TransaccionActualizarViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Models/TransaccionCrearViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Models/TransaccionesPorFecha.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Models/TransaccionesPorUsuario.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/AutoMapperProfiles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/AutoMapperProfiles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/IReportService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/IReportService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Models/TipoCuenta.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Models/TipoCuenta.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/IRepositoryAccounts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/IRepositoryAccounts.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/IRepositoryCategory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/IRepositoryCategory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/IRepositoryTiposCuentas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/IRepositoryTiposCuentas.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/IRepositoryTransactions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/IRepositoryTransactions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/ReportService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/ReportService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/RepositoryAccounts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/RepositoryAccounts.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/RepositoryCategory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/RepositoryCategory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/RepositoryTiposCuentas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/RepositoryTiposCuentas.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/RepositoryTransactions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/RepositoryTransactions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Views/Home/NotFoundProperty.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Home/NoEncontrado.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Views/Shared/_ReporteTransaccionesDetallado.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Shared/_ReporteTransaccionesDetallado.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Views/Transacciones/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Transacciones/Create.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Views/Transacciones/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Transacciones/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Views/Transacciones/Update.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Transacciones/Update.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoPresupuesto/Views/Categories/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoPresupuesto/Views/Categories/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +37,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Azrielx86&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f859e414-a979-4865-ad8b-e4b505aa1d96" />
+        <option name="url" value="https://github.com/EdgarsFeic96/UdemyASP-ManejoPresupuesto.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1af51483c9bf18871cce649b9f966dd7be686536f998c33bba3c5fc4adea4a0/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f18529517a1d3c051def436a4696cc374fd1877837b7e6cd9efc464122ef341/AsyncMethodBuilderCore.cs" root0="SKIP_HIGHLIGHTING" />
@@ -64,11 +59,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d9a41d47547e1fe7fe548b21ab4de12cc2671170a023bc8c629017837eb5f4/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c1da7b6c7c71a954fe3eb2531c6476711b3e6d93a8d76795386d326bb9dbc/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cf91eb35ab781c324ad4fa382dce85631ec37cf3813529f7c92208d866c851/TaskContinuation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/edgar/GitHub/UdemyASP-ManejoPresupuesto/ManejoPresupuesto/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/edgar/GitHub/UdemyASP-ManejoPresupuesto/ManejoPresupuesto/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2Tm1qEXUgXHnw1lYRA69E0Ez4Mb" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -77,27 +78,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;HotReloadSettingsPage&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\edgar\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\edgar\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\edgar\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\edgar\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\edgar\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\edgar\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="C:\Users\edgar\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
+        <option name="reportGuid" value="066bbb16-cc32-40e3-8ef2-16f422725d1f" />
+        <option name="reportName" value="ManejoPresupuesto/qodana/2023-08-10" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\edgar\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="066bbb16-cc32-40e3-8ef2-16f422725d1f" reportId="ManejoPresupuesto/qodana/2023-08-10" />
+    </option>
+  </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.ManejoPresupuesto">
     <configuration name="ManejoPresupuesto" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ManejoPresupuesto/ManejoPresupuesto.csproj" />
@@ -138,15 +156,38 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1691633632133</updated>
-      <workItem from="1691633634738" duration="9143000" />
+      <workItem from="1691633634738" duration="9571000" />
+      <workItem from="1691698968230" duration="594000" />
+      <workItem from="1691705022141" duration="1546000" />
+      <workItem from="1691712030573" duration="4596000" />
     </task>
+    <task id="LOCAL-00001" summary="Agregado sistema de usuarios">
+      <option name="closed" value="true" />
+      <created>1691642995127</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1691642995127</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Agregado sistema de usuarios">
+      <option name="closed" value="true" />
+      <created>1691643065204</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691643065204</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Agregado sistema de usuarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregado sistema de usuarios" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -163,6 +204,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ManejoPresupuesto/Controllers/TransaccionesController.cs</url>
+          <line>91</line>
+          <properties documentPath="C:\Users\edgar\GitHub\UdemyASP-ManejoPresupuesto\ManejoPresupuesto\Controllers\TransaccionesController.cs" initialLine="92" containingFunctionPresentation="Method 'Create'">
+            <startOffsets>
+              <option value="2980" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3017" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

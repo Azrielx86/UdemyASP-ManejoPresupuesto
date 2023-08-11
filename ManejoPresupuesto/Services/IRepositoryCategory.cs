@@ -8,11 +8,13 @@ public interface IRepositoryCategory
 
     Task Delete(int id);
 
-    Task<IEnumerable<Categoria>> Get(int userId, TipoOperacion tipoOperacion);
+    Task<IEnumerable<Categoria>?> Get(int userId, TipoOperacion tipoOperacion);
 
-    Task<IEnumerable<Categoria>> GetAll(int usuarioId);
+    Task<IEnumerable<Categoria>?> GetAll(int usuarioId, PaginacionViewModel paginacion);
 
-    Task<Categoria> GetById(int id, int usuarioId);
+    Task<Categoria?> GetById(int id, int usuarioId);
 
     Task Update(Categoria categoria);
+
+    Task<int> Count(int usuarioId);
 }

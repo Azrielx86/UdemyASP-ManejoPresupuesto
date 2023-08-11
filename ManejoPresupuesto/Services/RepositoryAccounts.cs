@@ -15,7 +15,7 @@ public class RepositoryAccounts : IRepositoryAccounts
 
     public async Task Create(Cuenta cuenta)
     {
-        using var connection = new SqlConnection(connectionString);
+        await using var connection = new SqlConnection(connectionString);
         var id = await connection.QuerySingleAsync<int>(@"INSERT INTO Cuentas(Nombre, TipoCuentaId, Descripcion, Balance)
                                                     VALUES(@Nombre, @TipoCuentaId, @Descripcion, @Balance);
                                                     SELECT SCOPE_IDENTITY();", cuenta);
@@ -24,13 +24,13 @@ public class RepositoryAccounts : IRepositoryAccounts
 
     public async Task Delete(int id)
     {
-        using var connection = new SqlConnection(connectionString);
+        await using var connection = new SqlConnection(connectionString);
         await connection.ExecuteAsync("DELETE Cuentas WHERE Id = @Id", new { id });
     }
 
-    public async Task<Cuenta> GetById(int id, int usuarioId)
+    public async Task<Cuenta?> GetById(int id, int usuarioId)
     {
-        using var connection = new SqlConnection(connectionString);
+        await using var connection = new SqlConnection(connectionString);
         return await connection.QueryFirstOrDefaultAsync<Cuenta>
                                                  (@"SELECT Cuentas.Id, Cuentas.Nombre, Cuentas.Balance, Descripcion, TipoCuentaId
                                                     FROM Cuentas
@@ -39,9 +39,9 @@ public class RepositoryAccounts : IRepositoryAccounts
                                                     WHERE tc.UsuarioId = @UsuarioId AND Cuentas.Id = @Id", new { usuarioId, id });
     }
 
-    public async Task<IEnumerable<Cuenta>> Search(int usuarioId)
+    public async Task<IEnumerable<Cuenta>?> Search(int usuarioId)
     {
-        using var connection = new SqlConnection(connectionString);
+        await using var connection = new SqlConnection(connectionString);
         return await connection.QueryAsync<Cuenta>(@"SELECT Cuentas.Id, Cuentas.Nombre, Cuentas.Balance, tc.Nombre AS TipoCuenta
                                                     FROM Cuentas
                                                     INNER JOIN TiposCuentas tc
@@ -52,7 +52,7 @@ public class RepositoryAccounts : IRepositoryAccounts
 
     public async Task Update(CuentasCreacionViewModel cuentaEditar)
     {
-        using var connection = new SqlConnection(connectionString);
+        await using var connection = new SqlConnection(connectionString);
         await connection.ExecuteAsync(@"
                                         UPDATE Cuentas
                                         SET Nombre = @Nombre,

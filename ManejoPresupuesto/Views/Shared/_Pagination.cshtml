@@ -1,0 +1,42 @@
+﻿@model PageResponse
+
+@{
+    var baseLink = string.Concat(Model.BaseUrl, "?Page={0}&RecordsPerPage={1}");
+}
+
+<nav>
+    <ul class="pagination">
+        <li class="page-item @(Model.Page > 1 ? null : "disabled")">
+            @if (Model.Page > 1)
+            {
+                <a class="page-link" href="@string.Format(baseLink, Model.Page - 1, Model.RecordsPerPage)">
+                    Siguiente
+                </a>
+            }
+            else
+            {
+                <span class="page-link">Siguiente</span>
+            }
+        </li>
+        @for (var pageIndex = 1; pageIndex <= Model.TotalPageCount; pageIndex++)
+        {
+            <li class="page-item @(Model.Page == pageIndex ? "active" : null)">
+                <a class="page-link" href="@string.Format(baseLink, pageIndex, Model.RecordsPerPage)">
+                    @pageIndex
+                </a>
+            </li>
+        }
+        <li class="page-item @(Model.Page < Model.TotalPageCount ? null : "disabled")">
+            @if (Model.Page < Model.TotalPageCount)
+            {
+                <a class="page-link" href="@string.Format(baseLink, Model.Page + 1, Model.RecordsPerPage)">
+                    Anterior
+                </a>
+            }
+            else
+            {
+                <span class="page-link">Anterior</span>
+            }
+        </li>
+    </ul>
+</nav>
